@@ -4,10 +4,16 @@ import discord
 from discord import app_commands
 from dotenv import load_dotenv
 from discord.ext import commands
-
+from keep_alive import keep_alive
 
 load_dotenv()
-TOKEN = os.getenv('TOKEN')
+try:
+    TOKEN = os.environ['TOKEN']
+except KeyError:
+    print("Error")
+finally:
+    TOKEN = os.getenv('TOKEN')
+
 
 
 intents = discord.Intents.all()
@@ -53,6 +59,7 @@ async def coinflip(message: discord.Interaction):
     await message.response.send_message(random.choice(["Heads", "Tails"]))
 
 def main()->None:
+    keep_alive()
     bot.run(TOKEN)
 
 
