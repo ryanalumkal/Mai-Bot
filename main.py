@@ -19,12 +19,37 @@ async def on_ready():
     print(f'{bot.user} has connected to Discord!')
 
 
+
 @bot.command()
-async def hello(ctx):
+async def hello(ctx:any)->str:
     await ctx.send("Hello!")
 
+@bot.command()
+async def tableflip(ctx:any)->str:
+    await ctx.send("(╯°□°）╯︵ ┻━┻")
 
-def main():
+@bot.command()
+async def unflip(ctx:any)->str:
+    await ctx.send("┬─┬﻿ ノ( ゜-゜ノ)")
+
+@bot.command()
+async def tableshrug(ctx:any)->str:
+    await ctx.send("¯\_(ツ)_/¯")
+
+@bot.command()
+async def ping(ctx:any)->str:
+    await ctx.send("Pong!")
+
+@bot.command()
+async def pong(ctx:any)->str:
+    print(type(ctx))
+    await ctx.send("Ping!")
+
+@bot.command()
+async def coinflip(ctx:any)->str:
+    await ctx.send(random.choice(["Heads", "Tails"]))
+
+def main()->None:
     bot.run(TOKEN)
 
 
