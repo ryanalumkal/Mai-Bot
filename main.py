@@ -1,6 +1,7 @@
 import os
 import random 
 import discord
+from discord import app_commands
 from dotenv import load_dotenv
 from discord.ext import commands
 
@@ -9,45 +10,47 @@ load_dotenv()
 TOKEN = os.getenv('TOKEN')
 
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.messages = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_ready():
+    synced = await bot.tree.sync()
     print(f'{bot.user} has connected to Discord!')
 
+@bot.tree.command(name="idk")
+async def idk(message: discord.Interaction):
+    await message.response.send_message("I Don't Know Either!")
 
+@bot.tree.command(name="hello")
+async def hello(message: discord.Interaction):
+    await message.response.send_message("Hello!")
 
-@bot.command()
-async def hello(ctx:any)->str:
-    await ctx.send("Hello!")
+@bot.tree.command(name="tableflip")
+async def tableflip(message: discord.Interaction):
+    await message.response.send_message("(╯°□°）╯︵ ┻━┻")
 
-@bot.command()
-async def tableflip(ctx:any)->str:
-    await ctx.send("(╯°□°）╯︵ ┻━┻")
+@bot.tree.command(name="unflip")
+async def unflip(message: discord.Interaction):
+    await message.response.send_message("┬─┬﻿ ノ( ゜-゜ノ)")
 
-@bot.command()
-async def unflip(ctx:any)->str:
-    await ctx.send("┬─┬﻿ ノ( ゜-゜ノ)")
+@bot.tree.command(name="tableshrug")
+async def tableshrug(message: discord.Interaction):
+    await message.response.send_message("¯\_(ツ)_/¯")
 
-@bot.command()
-async def tableshrug(ctx:any)->str:
-    await ctx.send("¯\_(ツ)_/¯")
+@bot.tree.command(name="ping")
+async def ping(message: discord.Interaction):
+    await message.response.send_message("Pong!")
 
-@bot.command()
-async def ping(ctx:any)->str:
-    await ctx.send("Pong!")
+@bot.tree.command(name="pong")
+async def pong(message: discord.Interaction):
+    await message.response.send_message("Ping!")
 
-@bot.command()
-async def pong(ctx:any)->str:
-    print(type(ctx))
-    await ctx.send("Ping!")
-
-@bot.command()
-async def coinflip(ctx:any)->str:
-    await ctx.send(random.choice(["Heads", "Tails"]))
+@bot.tree.command(name="coinflip")
+async def coinflip(message: discord.Interaction):
+    await message.response.send_message(random.choice(["Heads", "Tails"]))
 
 def main()->None:
     bot.run(TOKEN)
