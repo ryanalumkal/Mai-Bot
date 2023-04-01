@@ -1,29 +1,32 @@
-
 import os
-import discord 
-from discord.ext import commands, tasks
+import random 
+import discord
 from dotenv import load_dotenv
+from discord.ext import commands
+
 
 load_dotenv()
+TOKEN = os.getenv('TOKEN')
+
 
 intents = discord.Intents.default()
 intents.messages = True
 
-client = discord.Client(intents=intents)
+bot = commands.Bot(command_prefix='!', intents=intents)
 
-ClientID = os.getenv('ClientID')
-
-@client.event
+@bot.event
 async def on_ready():
-    print(f'We have logged in as {client.user}')
+    print(f'{bot.user} has connected to Discord!')
 
-@client.event
-async def on_message(message):
-    #if message.author == client.user:
-        #return
 
-    if message.content.startswith('!hello'):
-        await message.channel.send('Hello!')
+@bot.command()
+async def hello(ctx):
+    await ctx.send("Hello!")
+
+
+def main():
+    bot.run(TOKEN)
+
 
 if __name__ == '__main__':
-    client.run(ClientID)
+    main()
