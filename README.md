@@ -20,3 +20,5 @@ Commands:
 > Response: Ping!
 - coinflip
 > Response: random choice between "Heads" and "Tails"
+- animesearch (in-progress)
+> Response: returns the thumbnail, title, description, genres, and rating of a user-specified anime 
