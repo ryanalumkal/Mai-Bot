@@ -58,15 +58,16 @@ async def pong(message: discord.Interaction):
 async def coinflip(message: discord.Interaction):
     await message.response.send_message(random.choice(["Heads", "Tails"]))
 
-@bot.tree.command(name="test")
-async def test(message: discord.Interaction):
-    title, description, genres, anime_type = anime_information.get_anime_information("Jujutsu Kaisen")
-    embed=discord.Embed(title=title, url="https://anilist.co/anime/128893/Jigokuraku/", color=0xffffff)
-    embed.set_author(name="Anilist", url="https://anilist.co/")
-    embed.set_thumbnail(url="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx128893-l0R0GFHplDKW.jpg")
+@bot.tree.command(name="animesearch")
+@app_commands.describe(anime_name = "Enter the name of the anime you want to search for")
+async def test(message: discord.Interaction, anime_name: str):
+    title,description,genres,rating, siteURL, coverImage, color  = anime_information.get_anime_information(anime_name)
+    embed=discord.Embed(title=title, url=siteURL, color=color)
+    embed.set_author(name="Anilist", url="https://anilist.co/", icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/AniList_logo.svg/2048px-AniList_logo.svg.png")
+    embed.set_thumbnail(url=coverImage)
     embed.add_field(name="Genres", value=", ".join(genres), inline=False)
     embed.add_field(name="Description", value= description, inline=False)
-    embed.add_field(name="Type", value=anime_type, inline=False)
+    embed.add_field(name="Rating", value=f'{rating}%', inline=False)
     embed.set_footer(text="Source: Anilist")
     await message.response.send_message(embed=embed)
 
