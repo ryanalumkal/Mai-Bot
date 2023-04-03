@@ -5,20 +5,29 @@ Add Mai Bot to your server:
 
 Commands:
 - idk
-> Response: I Don't Know Either!
+
+  Response: I Don't Know Either!
 - hello
-> Response: Hello!
+
+  Response: Hello!
 - tableflip
-> Response: (╯°□°）╯︵ ┻━┻
+
+  Response: (╯°□°）╯︵ ┻━┻
 - tableunflip
-> Response: ┬─┬﻿ ノ( ゜-゜ノ)
+
+  Response: ┬─┬﻿ ノ( ゜-゜ノ)
 - tableshrug
-> Response: ¯\_(ツ)_/¯
+
+  Response: ¯\_(ツ)_/¯
 - ping
-> Response: Pong!
+
+  Response: Pong!
 - pong
-> Response: Ping!
+
+  Response: Ping!
 - coinflip
-> Response: random choice between "Heads" and "Tails"
+
+  Response: random choice between "Heads" and "Tails"
 - animesearch (in-progress)
-> Response: returns the thumbnail, title, description, genres, and rating of a user-specified anime 
+
+  Response: returns the thumbnail, title, description, genres, and rating of a user-specified anime 
