@@ -28,7 +28,7 @@ Commands (can be executed using "/" on discord):
 - **coinflip**
 
   Response: random choice between "Heads" and "Tails"
-- **animesearch**
+-**animesearch**
 
   Response: returns the thumbnail, title, description, genres, and rating of a user-specified anime 
   
@@ -39,3 +39,8 @@ Commands (can be executed using "/" on discord):
   Output:
   
   ![Anime Search Feature Output](https://github.com/ryanalumkal/Mai-Bot/blob/main/pictures/anime_search_output.png)
+  
+  -**mangasearch**
+
+  Response: returns the thumbnail, title, description, genres, and rating of a user-specified manga. The output format is similar to that of *animesearch*
+  
