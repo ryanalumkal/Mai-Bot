@@ -3,32 +3,32 @@ Add Mai Bot to your server:
 
 [![Mai Bot Icon](https://github.com/ryanalumkal/Mai-Bot/blob/main/pictures/maiboticon.png)](https://discord.com/api/oauth2/authorize?client_id=1091028696661499944&permissions=534723951680&scope=bot)
 
-Commands:
-- idk
+Commands (can be executed using "/" on discord):
+- **idk**
 
   Response: I Don't Know Either!
-- hello
+- **hello**
 
   Response: Hello!
-- tableflip
+- **tableflip**
 
   Response: (╯°□°）╯︵ ┻━┻
-- tableunflip
+- **tableunflip**
 
   Response: ┬─┬﻿ ノ( ゜-゜ノ)
-- tableshrug
+- **tableshrug**
 
   Response: ¯\_(ツ)_/¯
-- ping
+- **ping**
 
   Response: Pong!
-- pong
+-**pong**
 
   Response: Ping!
-- coinflip
+- **coinflip**
 
   Response: random choice between "Heads" and "Tails"
-- animesearch (in-progress)
+- **animesearch**
 
   Response: returns the thumbnail, title, description, genres, and rating of a user-specified anime 
   
