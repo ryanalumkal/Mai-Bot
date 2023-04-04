@@ -4,7 +4,7 @@ import discord
 from discord import app_commands
 from dotenv import load_dotenv
 from discord.ext import commands
-import anime_information
+from anilistdata import get_anime_information
 from keep_alive import keep_alive
 
 load_dotenv()
@@ -61,7 +61,7 @@ async def coinflip(message: discord.Interaction):
 @bot.tree.command(name="animesearch")
 @app_commands.describe(anime_name = "Enter the name of the anime you want to search for")
 async def test(message: discord.Interaction, anime_name: str):
-    title,description,genres,rating, siteURL, coverImage, color  = anime_information.get_anime_information(anime_name)
+    title,description,genres,rating, siteURL, coverImage, color  = get_anime_information(anime_name)
     embed=discord.Embed(title=title, url=siteURL, color=color)
     embed.set_author(name="Anilist", url="https://anilist.co/", icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/AniList_logo.svg/2048px-AniList_logo.svg.png")
     embed.set_thumbnail(url=coverImage)
