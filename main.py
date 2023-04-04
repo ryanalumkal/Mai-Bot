@@ -4,7 +4,7 @@ import discord
 from discord import app_commands
 from dotenv import load_dotenv
 from discord.ext import commands
-from anilistdata import get_anime_information
+from anilistdata import get_anime_information, get_manga_information
 from keep_alive import keep_alive
 
 load_dotenv()
@@ -60,8 +60,21 @@ async def coinflip(message: discord.Interaction):
 
 @bot.tree.command(name="animesearch")
 @app_commands.describe(anime_name = "Enter the name of the anime you want to search for")
-async def test(message: discord.Interaction, anime_name: str):
+async def animesearch(message: discord.Interaction, anime_name: str):
     title,description,genres,rating, siteURL, coverImage, color  = get_anime_information(anime_name)
+    embed=discord.Embed(title=title, url=siteURL, color=color)
+    embed.set_author(name="Anilist", url="https://anilist.co/", icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/AniList_logo.svg/2048px-AniList_logo.svg.png")
+    embed.set_thumbnail(url=coverImage)
+    embed.add_field(name="Genres", value=", ".join(genres), inline=False)
+    embed.add_field(name="Description", value= description, inline=False)
+    embed.add_field(name="Rating", value=f'{rating}%', inline=False)
+    embed.set_footer(text="Source: Anilist")
+    await message.response.send_message(embed=embed)
+
+@bot.tree.command(name="mangasearch")
+@app_commands.describe(manga_name = "Enter the name of the manga you want to search for")
+async def mangasearch(message: discord.Interaction, manga_name: str):
+    title,description,genres,rating, siteURL, coverImage, color  = get_manga_information(manga_name)
     embed=discord.Embed(title=title, url=siteURL, color=color)
     embed.set_author(name="Anilist", url="https://anilist.co/", icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/AniList_logo.svg/2048px-AniList_logo.svg.png")
     embed.set_thumbnail(url=coverImage)
