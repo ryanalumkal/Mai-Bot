@@ -15,7 +15,7 @@ Commands (can be executed using "/" on discord):
   Response: (╯°□°）╯︵ ┻━┻
 - **tableunflip**
 
-  Response: ┬─┬﻿ ノ( ゜-゜ノ)
+  Response: ┬─┬ ノ( ゜-゜ノ)
 - **tableshrug**
 
   Response: ¯\_(ツ)_/¯
